@@ -47,13 +47,13 @@ blank-sheet/
 ### Clone the repository
 
 ```bash
-git clone https://github.com/YOUR-USERNAME/YOUR-REPOSITORY.git
+git clone https://github.com/KevinSegovia-dev/Blank-Sheet.git
 ```
 
 ### Navigate to the project
 
 ```bash
-cd YOUR-REPOSITORY
+cd Blank-Sheet
 ```
 
 ### Run the project
