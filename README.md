@@ -6,7 +6,7 @@ A frontend digital library project designed to provide a simple and modern inter
 
 You can visit the deployed version of the project on GitHub Pages:
 
-**[View Blank Sheet](https://kevinsegovia-dev.github.io/Blank-Sheet/)]**
+[View Blank Sheet](https://kevinsegovia-dev.github.io/Blank-Sheet/)
 
 > Replace the link above with your GitHub Pages URL.
 
