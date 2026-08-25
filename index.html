@@ -1,52 +1,277 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/styles.css">
-    <script src="js/script.js"></script>
+    <script src="js/script.js" defer></script>
     <title>BlankSheet</title>
 </head>
 <body>
     <main>
         <nav class="nav">
-            <img src="" alt="">
+            <a class="nav__brand" href="#top">
+                <img src="img/logo.svg" alt="BlankSheet">
+            </a>
             <ul class="nav__list">
                 <li class="nav__item">
-                    <a class="nav__link" href=""></a>
+                    <a class="nav__link" href="#catalog">Catálogo</a>
                 </li>
                 <li class="nav__item">
-                    <a class="nav__link" href=""></a>
+                    <a class="nav__link" href="#featured">Destacados</a>
                 </li>
                 <li class="nav__item">
-                    <a class="nav__link" href=""></a>
+                    <a class="nav__link" href="#questions">Preguntas</a>
                 </li>
                 <li class="nav__item">
-                    <a class="nav__link" href=""></a>
+                    <a class="nav__link" href="#contact">Contacto</a>
                 </li>
             </ul>
         </nav>
+        <section class="hero" id="top">
+            <p class="hero__eyebrow">Biblioteca digital</p>
+            <h1 class="hero__title">BlankSheet</h1>
+            <p class="hero__text">Explora una colección curada de lecturas. Descubre títulos, autores y ediciones listas para tu próxima página en blanco.</p>
+            <a class="hero__cta" href="#catalog">Ver catálogo</a>
+        </section>
     </main>
-    <section class="catalog">
-        <!-- Catalogo -->
+    <section class="catalog" id="catalog">
+        <div class="section-head">
+            <h2 class="section-head__title">Catálogo</h2>
+            <p class="section-head__text">Estos son algunos libros. En cada tarjeta ves el autor, una breve descripción y el precio.</p>
+        </div>
+        <div class="catalog__grid">
+            <article class="card">
+                <img class="card__image" src="img/cien-anos-de-soledad.svg" alt="Portada de Cien años de soledad" width="600" height="800" loading="lazy">
+                <div class="card__body">
+                    <h3 class="card__title">Cien años de soledad</h3>
+                    <p class="card__author">Gabriel García Márquez</p>
+                    <p class="card__description">La saga de los Buendía en Macondo: memoria, magia y el pulso de una estirpe que no quiere olvidar.</p>
+                    <div class="card__footer">
+                        <p class="card__price">$9.99</p>
+                        <button class="card__button" type="button">Ver información</button>
+                    </div>
+                </div>
+            </article>
+            <article class="card">
+                <img class="card__image" src="img/el-nombre-del-viento.svg" alt="Portada de El nombre del viento" width="600" height="800" loading="lazy">
+                <div class="card__body">
+                    <h3 class="card__title">El nombre del viento</h3>
+                    <p class="card__author">Patrick Rothfuss</p>
+                    <p class="card__description">Kvothe cuenta su propia leyenda: música, magia y la Universidad donde se aprende a nombrar el mundo.</p>
+                    <div class="card__footer">
+                        <p class="card__price">$12.50</p>
+                        <button class="card__button" type="button">Ver información</button>
+                    </div>
+                </div>
+            </article>
+            <article class="card">
+                <img class="card__image" src="img/sapiens.svg" alt="Portada de Sapiens" width="600" height="800" loading="lazy">
+                <div class="card__body">
+                    <h3 class="card__title">Sapiens</h3>
+                    <p class="card__author">Yuval Noah Harari</p>
+                    <p class="card__description">Un recorrido por la historia de nuestra especie: de cazadores nómadas a sociedades que imaginan el futuro.</p>
+                    <div class="card__footer">
+                        <p class="card__price">$11.00</p>
+                        <button class="card__button" type="button">Ver información</button>
+                    </div>
+                </div>
+            </article>
+            <article class="card">
+                <img class="card__image" src="img/rayuela.svg" alt="Portada de Rayuela" width="600" height="800" loading="lazy">
+                <div class="card__body">
+                    <h3 class="card__title">Rayuela</h3>
+                    <p class="card__author">Julio Cortázar</p>
+                    <p class="card__description">París y Buenos Aires en un tablero de lectura: una novela para saltar, volver y perderse a propósito.</p>
+                    <div class="card__footer">
+                        <p class="card__price">$8.75</p>
+                        <button class="card__button" type="button">Ver información</button>
+                    </div>
+                </div>
+            </article>
+        </div>
     </section>
-    <section class="categories">
-        <!-- Categorias -->
+    <section class="categories" id="categories">
+        <div class="section-head">
+            <h2 class="section-head__title">Categorías</h2>
+            <p class="section-head__text">Si quieres ver los libros por tipo, empieza por aquí.</p>
+        </div>
+        <ul class="categories__list">
+            <li class="categories__item">Ficción</li>
+            <li class="categories__item">No ficción</li>
+            <li class="categories__item">Poesía</li>
+            <li class="categories__item">Ensayo</li>
+        </ul>
     </section>
-    <section class="featured-books">
-        <!-- Libros destacados -->
+    <section class="featured-books" id="featured">
+        <div class="section-head">
+            <h2 class="section-head__title">Libros destacados</h2>
+            <p class="section-head__text">Algunos títulos recomendados. Muévete con las flechas.</p>
+        </div>
+        <div class="carousel" data-carousel>
+            <button class="carousel__btn carousel__btn--prev" type="button" aria-label="Libro anterior" data-carousel-prev>
+                <span aria-hidden="true">‹</span>
+            </button>
+            <div class="carousel__viewport">
+                <ul class="carousel__track" data-carousel-track>
+                    <li class="carousel__slide">
+                        <article class="card card--featured">
+                            <img class="card__image" src="img/orgullo-y-prejuicio.svg" alt="Portada de Orgullo y prejuicio" width="600" height="800" loading="lazy">
+                            <div class="card__body">
+                                <h3 class="card__title">Orgullo y prejuicio</h3>
+                                <p class="card__author">Jane Austen</p>
+                                <p class="card__price">$7.90</p>
+                            </div>
+                        </article>
+                    </li>
+                    <li class="carousel__slide">
+                        <article class="card card--featured">
+                            <img class="card__image" src="img/1984.svg" alt="Portada de 1984" width="600" height="800" loading="lazy">
+                            <div class="card__body">
+                                <h3 class="card__title">1984</h3>
+                                <p class="card__author">George Orwell</p>
+                                <p class="card__price">$8.20</p>
+                            </div>
+                        </article>
+                    </li>
+                    <li class="carousel__slide">
+                        <article class="card card--featured">
+                            <img class="card__image" src="img/el-principito.svg" alt="Portada de El principito" width="600" height="800" loading="lazy">
+                            <div class="card__body">
+                                <h3 class="card__title">El principito</h3>
+                                <p class="card__author">Antoine de Saint-Exupéry</p>
+                                <p class="card__price">$6.50</p>
+                            </div>
+                        </article>
+                    </li>
+                    <li class="carousel__slide">
+                        <article class="card card--featured">
+                            <img class="card__image" src="img/ficciones.svg" alt="Portada de Ficciones" width="600" height="800" loading="lazy">
+                            <div class="card__body">
+                                <h3 class="card__title">Ficciones</h3>
+                                <p class="card__author">Jorge Luis Borges</p>
+                                <p class="card__price">$9.10</p>
+                            </div>
+                        </article>
+                    </li>
+                    <li class="carousel__slide">
+                        <article class="card card--featured">
+                            <img class="card__image" src="img/dune.svg" alt="Portada de Dune" width="600" height="800" loading="lazy">
+                            <div class="card__body">
+                                <h3 class="card__title">Dune</h3>
+                                <p class="card__author">Frank Herbert</p>
+                                <p class="card__price">$13.40</p>
+                            </div>
+                        </article>
+                    </li>
+                </ul>
+            </div>
+            <button class="carousel__btn carousel__btn--next" type="button" aria-label="Libro siguiente" data-carousel-next>
+                <span aria-hidden="true">›</span>
+            </button>
+            <div class="carousel__dots" data-carousel-dots></div>
+        </div>
     </section>
-    <section class="questions">
-        <!-- ¿Por qué elegirnos? -->
+    <section class="questions" id="questions">
+        <div class="section-head">
+            <h2 class="section-head__title">Preguntas frecuentes</h2>
+            <p class="section-head__text">Algunas dudas comunes sobre la página.</p>
+        </div>
+        <div class="faq">
+            <div class="faq__item">
+                <button class="faq__question" type="button" aria-expanded="false" id="faq-q-1" aria-controls="faq-a-1">
+                    ¿Qué es BlankSheet?
+                </button>
+                <div class="faq__answer" id="faq-a-1" role="region" aria-labelledby="faq-q-1" hidden>
+                    <p>BlankSheet es una biblioteca digital de interfaz simple para explorar títulos, autores y ediciones. Está pensada para navegar el catálogo desde cualquier dispositivo, sin cuentas ni descargas adicionales.</p>
+                </div>
+            </div>
+            <div class="faq__item">
+                <button class="faq__question" type="button" aria-expanded="false" id="faq-q-2" aria-controls="faq-a-2">
+                    ¿Cómo obtengo un libro del catálogo?
+                </button>
+                <div class="faq__answer" id="faq-a-2" role="region" aria-labelledby="faq-q-2" hidden>
+                    <p>Cada tarjeta muestra la información de la edición. El botón «Ver información» resume el título, el autor y el precio. La compra o descarga se integrará más adelante; por ahora el catálogo es de consulta.</p>
+                </div>
+            </div>
+            <div class="faq__item">
+                <button class="faq__question" type="button" aria-expanded="false" id="faq-q-3" aria-controls="faq-a-3">
+                    ¿Puedo solicitar un título que no está listado?
+                </button>
+                <div class="faq__answer" id="faq-a-3" role="region" aria-labelledby="faq-q-3" hidden>
+                    <p>Sí. Usa la sección «Solicitar un libro» o el formulario de contacto e indica título y autor. Recibiremos la petición cuando el envío de mensajes esté conectado a un servicio de correo.</p>
+                </div>
+            </div>
+            <div class="faq__item">
+                <button class="faq__question" type="button" aria-expanded="false" id="faq-q-4" aria-controls="faq-a-4">
+                    ¿Funciona en el teléfono?
+                </button>
+                <div class="faq__answer" id="faq-a-4" role="region" aria-labelledby="faq-q-4" hidden>
+                    <p>Sí. El diseño se adapta a pantallas pequeñas: el catálogo se apila, el carrusel muestra una portada a la vez y el menú se reorganiza para no desbordar el ancho.</p>
+                </div>
+            </div>
+        </div>
     </section>
-    <section class="request-a-book">
-        <!-- Solicitar un libro -->
+    <section class="request-a-book" id="request">
+        <div class="section-head">
+            <h2 class="section-head__title">Solicitar un libro</h2>
+            <p class="section-head__text">Si no está el libro que buscas, escribe el título y el autor. Por ahora el formulario no envía nada.</p>
+        </div>
+        <form class="form" id="request-form" novalidate>
+            <div class="form__field">
+                <label class="form__label" for="request-title">Título</label>
+                <input class="form__input" type="text" id="request-title" name="title" autocomplete="off" required>
+                <p class="form__error" data-error-for="request-title" hidden></p>
+            </div>
+            <div class="form__field">
+                <label class="form__label" for="request-author">Autor</label>
+                <input class="form__input" type="text" id="request-author" name="author" autocomplete="name" required>
+                <p class="form__error" data-error-for="request-author" hidden></p>
+            </div>
+            <button class="form__submit" type="submit">Enviar solicitud</button>
+            <p class="form__success" id="request-success" hidden>Solicitud lista. Cuando exista backend, este mensaje viajará por correo.</p>
+        </form>
     </section>
-    <section class="contact">
-        <!-- Contacto -->
+    <section class="contact" id="contact">
+        <div class="section-head">
+            <h2 class="section-head__title">Contacto</h2>
+            <p class="section-head__text">Si tienes alguna duda, deja tu mensaje aquí. Todavía no se envía de verdad.</p>
+        </div>
+        <form class="form" id="contact-form" novalidate>
+            <div class="form__field">
+                <label class="form__label" for="contact-name">Nombre</label>
+                <input class="form__input" type="text" id="contact-name" name="name" autocomplete="name" required>
+                <p class="form__error" data-error-for="contact-name" hidden></p>
+            </div>
+            <div class="form__field">
+                <label class="form__label" for="contact-email">Correo electrónico</label>
+                <input class="form__input" type="email" id="contact-email" name="email" autocomplete="email" required>
+                <p class="form__error" data-error-for="contact-email" hidden></p>
+            </div>
+            <div class="form__field">
+                <label class="form__label" for="contact-message">Mensaje</label>
+                <textarea class="form__textarea" id="contact-message" name="message" rows="5" required></textarea>
+                <p class="form__error" data-error-for="contact-message" hidden></p>
+            </div>
+            <button class="form__submit" type="submit">Enviar</button>
+            <p class="form__success" id="contact-success" hidden>Mensaje validado. El envío se conectará cuando exista un servicio de correo.</p>
+        </form>
     </section>
-    <footer>
-
+    <div class="modal" id="book-modal" hidden>
+        <div class="modal__dialog" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+            <button class="modal__close" type="button" aria-label="Cerrar" data-modal-close>&times;</button>
+            <img class="modal__image" id="modal-image" alt="">
+            <div class="modal__body">
+                <h3 class="modal__title" id="modal-title"></h3>
+                <p class="modal__author" id="modal-author"></p>
+                <p class="modal__description" id="modal-description"></p>
+                <p class="modal__price" id="modal-price"></p>
+            </div>
+        </div>
+    </div>
+    <footer class="footer">
+        <p class="footer__brand">BlankSheet</p>
+        <p class="footer__copy">Biblioteca digital · interfaz simple para explorar lecturas.</p>
     </footer>
 </body>
 </html>

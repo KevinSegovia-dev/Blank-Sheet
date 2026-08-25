@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 48" role="img" aria-labelledby="logoTitle">
+  <title id="logoTitle">BlankSheet</title>
+  <rect x="2" y="8" width="22" height="32" rx="3" fill="#3f5c4a"/>
+  <rect x="8" y="12" width="14" height="24" rx="1.5" fill="#f6f1e8"/>
+  <text x="34" y="32" font-family="Georgia, Times New Roman, serif" font-size="22" fill="#1f1a16">BlankSheet</text>
+</svg>
