@@ -1,9 +1,25 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 800" role="img" aria-labelledby="t">
-  <title id="t">Ficciones</title>
-  <rect width="600" height="800" fill="#3f4a5c"/>
-  <rect x="48" y="56" width="504" height="688" fill="#f6f1e8"/>
-  <rect x="48" y="56" width="18" height="688" fill="#3f4a5c"/>
-  <text x="300" y="370" text-anchor="middle" font-family="Georgia, serif" font-size="44" fill="#1f1a16">Ficciones</text>
-  <line x1="180" y1="420" x2="420" y2="420" stroke="#3f4a5c" stroke-width="2"/>
-  <text x="300" y="470" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="20" fill="#6b6258">Jorge Luis Borges</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 800">
+  <title>Ficciones — Jorge Luis Borges</title>
+  <rect width="600" height="800" fill="#403b35"/>
+  <rect x="48" y="56" width="504" height="688" rx="4" fill="#f6f1e8"/>
+  <rect x="48" y="56" width="18" height="688" fill="#756653"/>
+  <text x="300" y="300" text-anchor="middle" font-family="Georgia,serif" font-size="66" fill="#1f1a16">Ficciones</text>
+  <line x1="215" y1="340" x2="285" y2="340" stroke="#8a6a3d" stroke-width="2"/>
+  <circle cx="300" cy="340" r="4" fill="#8a6a3d"/>
+  <line x1="315" y1="340" x2="385" y2="340" stroke="#8a6a3d" stroke-width="2"/>
+  <text x="300" y="380" text-anchor="middle" font-family="Georgia,serif" font-style="italic" font-size="19" fill="#6b6258">Jorge Luis Borges</text>
+  <g fill="none" stroke="#5c554c" stroke-width="3">
+    <circle cx="300" cy="515" r="78"/>
+    <circle cx="300" cy="515" r="48"/>
+    <circle cx="300" cy="515" r="18"/>
+    <path d="M300 437 L300 593 M222 515 L378 515"/>
+  </g>
+  <g fill="#8a6a3d">
+    <circle cx="190" cy="460" r="4"/><circle cx="410" cy="460" r="4"/>
+    <circle cx="190" cy="570" r="4"/><circle cx="410" cy="570" r="4"/>
+  </g>
+  <path d="M205 635 Q300 585 395 635" fill="none" stroke="#8a6a3d" stroke-width="3"/>
+  <line x1="215" y1="700" x2="285" y2="700" stroke="#8a6a3d" stroke-width="2"/>
+  <circle cx="300" cy="700" r="4" fill="#8a6a3d"/>
+  <line x1="315" y1="700" x2="385" y2="700" stroke="#8a6a3d" stroke-width="2"/>
 </svg>

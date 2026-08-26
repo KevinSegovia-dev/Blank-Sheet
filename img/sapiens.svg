@@ -1,9 +1,19 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 800" role="img" aria-labelledby="t">
-  <title id="t">Sapiens</title>
-  <rect width="600" height="800" fill="#3d4a5c"/>
-  <rect x="48" y="56" width="504" height="688" fill="#fffcf7"/>
-  <rect x="48" y="56" width="18" height="688" fill="#3d4a5c"/>
-  <text x="300" y="370" text-anchor="middle" font-family="Georgia, serif" font-size="48" fill="#1f1a16">Sapiens</text>
-  <line x1="180" y1="420" x2="420" y2="420" stroke="#3d4a5c" stroke-width="2"/>
-  <text x="300" y="470" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="20" fill="#6b6258">Yuval Noah Harari</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 800">
+  <title>Sapiens — Yuval Noah Harari</title>
+  <rect width="600" height="800" fill="#3d4038"/>
+  <rect x="48" y="56" width="504" height="688" rx="4" fill="#f6f1e8"/>
+  <rect x="48" y="56" width="18" height="688" fill="#66704d"/>
+  <text x="300" y="300" text-anchor="middle" font-family="Georgia,serif" font-size="68" fill="#1f1a16">Sapiens</text>
+  <line x1="215" y1="340" x2="285" y2="340" stroke="#7b6846" stroke-width="2"/>
+  <circle cx="300" cy="340" r="4" fill="#7b6846"/>
+  <line x1="315" y1="340" x2="385" y2="340" stroke="#7b6846" stroke-width="2"/>
+  <text x="300" y="380" text-anchor="middle" font-family="Georgia,serif" font-style="italic" font-size="19" fill="#6b6258">Yuval Noah Harari</text>
+  <path d="M150 590 Q300 430 450 590" fill="none" stroke="#66704d" stroke-width="5"/>
+  <circle cx="300" cy="500" r="42" fill="none" stroke="#8a6a3d" stroke-width="4"/>
+  <path d="M300 458 L300 542 M258 500 L342 500" stroke="#8a6a3d" stroke-width="3"/>
+  <path d="M220 620 Q300 560 380 620" fill="none" stroke="#6b6258" stroke-width="3"/>
+  <circle cx="180" cy="560" r="7" fill="#8a6a3d"/><circle cx="420" cy="560" r="7" fill="#8a6a3d"/>
+  <line x1="215" y1="700" x2="285" y2="700" stroke="#7b6846" stroke-width="2"/>
+  <circle cx="300" cy="700" r="4" fill="#7b6846"/>
+  <line x1="315" y1="700" x2="385" y2="700" stroke="#7b6846" stroke-width="2"/>
 </svg>

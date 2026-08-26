@@ -15,25 +15,81 @@
             author: "Indica el autor."
         }, "request-success");
     });
-
     function initCatalogButtons() {
         var buttons = document.querySelectorAll(".card__button");
+    
+        var modal = document.getElementById("book-modal");
+        var modalImage = document.getElementById("modal-image");
+        var modalTitle = document.getElementById("modal-title");
+        var modalAuthor = document.getElementById("modal-author");
+        var modalDescription = document.getElementById("modal-description");
+        var modalPrice = document.getElementById("modal-price");
+        var closeButton = modal ? modal.querySelector("[data-modal-close]") : null;
+    
+        if (!modal) {
+            return;
+        }
+    
+        function closeModal() {
+            modal.hidden = true;
+            document.body.style.overflow = "";
+        }
+    
         buttons.forEach(function (button) {
             button.addEventListener("click", function () {
+    
                 var card = button.closest(".card");
+    
                 if (!card) {
                     return;
                 }
+    
+                var image = card.querySelector(".card__image");
                 var title = card.querySelector(".card__title");
                 var author = card.querySelector(".card__author");
+                var description = card.querySelector(".card__description");
                 var price = card.querySelector(".card__price");
-                var parts = [
-                    title ? title.textContent.trim() : "",
-                    author ? author.textContent.trim() : "",
-                    price ? price.textContent.trim() : ""
-                ].filter(Boolean);
-                window.alert(parts.join(" · "));
+    
+                if (modalImage && image) {
+                    modalImage.src = image.src;
+                    modalImage.alt = image.alt;
+                }
+    
+                if (modalTitle && title) {
+                    modalTitle.textContent = title.textContent.trim();
+                }
+    
+                if (modalAuthor && author) {
+                    modalAuthor.textContent = author.textContent.trim();
+                }
+    
+                if (modalDescription && description) {
+                    modalDescription.textContent = description.textContent.trim();
+                }
+    
+                if (modalPrice && price) {
+                    modalPrice.textContent = price.textContent.trim();
+                }
+    
+                modal.hidden = false;
+                document.body.style.overflow = "hidden";
             });
+        });
+    
+        if (closeButton) {
+            closeButton.addEventListener("click", closeModal);
+        }
+    
+        modal.addEventListener("click", function (event) {
+            if (event.target === modal) {
+                closeModal();
+            }
+        });
+    
+        document.addEventListener("keydown", function (event) {
+            if (event.key === "Escape" && !modal.hidden) {
+                closeModal();
+            }
         });
     }
 

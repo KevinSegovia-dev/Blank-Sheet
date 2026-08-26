@@ -1,10 +1,22 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 800" role="img" aria-labelledby="t">
-  <title id="t">Orgullo y prejuicio</title>
-  <rect width="600" height="800" fill="#4a3f5c"/>
-  <rect x="48" y="56" width="504" height="688" fill="#efe6d6"/>
-  <rect x="48" y="56" width="18" height="688" fill="#4a3f5c"/>
-  <text x="300" y="340" text-anchor="middle" font-family="Georgia, serif" font-size="34" fill="#1f1a16">Orgullo</text>
-  <text x="300" y="390" text-anchor="middle" font-family="Georgia, serif" font-size="34" fill="#1f1a16">y prejuicio</text>
-  <line x1="180" y1="430" x2="420" y2="430" stroke="#4a3f5c" stroke-width="2"/>
-  <text x="300" y="480" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="20" fill="#6b6258">Jane Austen</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 800">
+  <title>Orgullo y prejuicio — Jane Austen</title>
+  <rect width="600" height="800" fill="#4b4038"/>
+  <rect x="48" y="56" width="504" height="688" rx="4" fill="#f6f1e8"/>
+  <rect x="48" y="56" width="18" height="688" fill="#8a6a58"/>
+  <text x="300" y="270" text-anchor="middle" font-family="Georgia,serif" font-size="38" fill="#1f1a16">Orgullo y</text>
+  <text x="300" y="315" text-anchor="middle" font-family="Georgia,serif" font-size="38" fill="#1f1a16">prejuicio</text>
+  <line x1="215" y1="350" x2="285" y2="350" stroke="#8a5a50" stroke-width="2"/>
+  <circle cx="300" cy="350" r="4" fill="#8a5a50"/>
+  <line x1="315" y1="350" x2="385" y2="350" stroke="#8a5a50" stroke-width="2"/>
+  <text x="300" y="390" text-anchor="middle" font-family="Georgia,serif" font-style="italic" font-size="19" fill="#6b6258">Jane Austen</text>
+  <path d="M220 615 Q300 525 380 615" fill="none" stroke="#8a6a58" stroke-width="5"/>
+  <path d="M205 615 Q300 580 395 615" fill="none" stroke="#8a6a58" stroke-width="3"/>
+  <g fill="none" stroke="#8a5a50" stroke-width="3">
+    <path d="M160 500 C190 465 220 465 245 500 C220 485 190 485 160 500Z"/>
+    <path d="M355 500 C380 465 410 465 440 500 C410 485 380 485 355 500Z"/>
+  </g>
+  <circle cx="300" cy="555" r="6" fill="#8a5a50"/>
+  <line x1="215" y1="700" x2="285" y2="700" stroke="#8a5a50" stroke-width="2"/>
+  <circle cx="300" cy="700" r="4" fill="#8a5a50"/>
+  <line x1="315" y1="700" x2="385" y2="700" stroke="#8a5a50" stroke-width="2"/>
 </svg>
