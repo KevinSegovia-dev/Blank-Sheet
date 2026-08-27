@@ -119,17 +119,12 @@ main {
     outline: none;
 }
 
-.hero {
-    padding: 3.5rem 0 1.5rem;
-    max-width: 40rem;
+.nav__link-button {
+    margin-left: 20px;
 }
 
-.hero__eyebrow {
-    text-transform: uppercase;
-    letter-spacing: 0.14em;
-    font-size: 0.75rem;
-    color: var(--color-accent);
-    margin-bottom: 0.75rem;
+.nav__link-button:hover {
+    border-bottom-color: var(--color-accent);
 }
 
 .hero__title {
@@ -144,6 +139,7 @@ main {
 
 .hero__cta,
 .card__button,
+.card__button--carrusel,
 .form__submit {
     display: inline-flex;
     align-items: center;
@@ -158,10 +154,72 @@ main {
     transition: background 0.2s ease;
 }
 
+.card__button--carrusel {
+    padding: 0.5rem 0.95rem;
+    white-space: nowrap;
+}
+
 .hero__cta:hover,
 .card__button:hover,
+.card__button--carrusel:hover,
 .form__submit:hover {
     background: var(--color-accent-hover);
+}
+
+.hero2__title {
+    white-space: pre-line;
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.hero2__text {
+    color: var(--color-muted);
+    margin-bottom: 1.5rem;
+    margin-top: 1.5rem
+}
+
+@media (max-width: 700px) {
+    .features {
+        flex-direction: column;
+        gap: 35px;
+    }
+}
+
+.features {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    gap: 3rem;
+    border-top: 1px solid #d8d0c3;
+    padding-top: 25px;
+}
+
+.feature {
+    flex: 1;
+}
+
+.feature-number {
+    display: block;
+    font-size: 13px;
+    margin-bottom: 15px;
+    color: #6b6b61;
+}
+
+.feature h3 {
+    margin: 0 0 15px;
+    font-family: Georgia, serif;
+    font-size: 22px;
+    font-weight: 500;
+    line-height: 1.15;
+    text-transform: uppercase;
+}
+
+.feature p {
+    max-width: 280px;
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #666;
 }
 
 .catalog,
@@ -384,6 +442,49 @@ main {
     padding: 1.1rem 1rem;
     text-align: center;
     font-family: var(--font-serif);
+}
+
+.categories__item {
+    position: relative;
+    cursor: pointer;
+}
+
+.nav__link-button {
+    position: relative;
+    cursor: pointer;
+}
+
+.tooltip,
+.tooltip-link {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+
+    margin-top: 8px;
+    padding: 0.4rem 0.7rem;
+
+    background: var(--color-ink);
+    color: white;
+    border-radius: 4px;
+
+    font-size: 0.75rem;
+    white-space: nowrap;
+
+    opacity: 0;
+    visibility: hidden;
+
+    transition: opacity 0.2s ease;
+}
+
+.categories__item:hover .tooltip {
+    opacity: 1;
+    visibility: visible;
+}
+
+.nav__item:hover .tooltip-link {
+    opacity: 1;
+    visibility: visible;
 }
 
 .carousel {
