@@ -8,8 +8,6 @@ You can visit the deployed version of the project on GitHub Pages:
 
 [View Blank Sheet](https://kevinsegovia-dev.github.io/Blank-Sheet/)
 
-> Replace the link above with your GitHub Pages URL.
-
 ## ✨ Features
 
 * 📖 Browse a collection of books.
