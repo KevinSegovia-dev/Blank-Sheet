@@ -19,11 +19,11 @@ You can visit the deployed version of the project on GitHub Pages:
 
 ## 🛠️ Technologies
 
-* **HTML5** — Page structure and semantic markup.
-* **CSS3** — Styling, layout, and responsive design.
-* **JavaScript** — Interactivity and functionality.
-* **Git & GitHub** — Version control and repository management.
-* **GitHub Pages** — Project deployment.
+* **HTML5**
+* **CSS3**
+* **JavaScript**
+* **Git & GitHub**
+* **GitHub Pages**
 
 ## 📂 Project Structure
 
