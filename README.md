@@ -88,19 +88,6 @@ This project was created to practice and improve frontend development skills, in
 * Git and GitHub workflow.
 * Static website deployment.
 
-## 🔮 Future Improvements
-
-Possible features that could be added in future versions:
-
-* [ ] Favorites system.
-* [ ] Genre filters.
-* [ ] Book sorting.
-* [ ] Dark mode.
-* [ ] Pagination.
-* [ ] Data persistence using `localStorage`.
-* [ ] Backend integration.
-* [ ] User authentication.
-
 ## 👨‍💻 Author
 
 **Kevin Segovia**
