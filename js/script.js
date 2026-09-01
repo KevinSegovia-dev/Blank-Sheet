@@ -1,115 +1,136 @@
-(function () {
+"use strict";
 
-    "use strict";
+class BookModal {
+    constructor() {
+        this.modal = document.getElementById("book-modal");
 
-    document.addEventListener("DOMContentLoaded", function () {
+        if (!this.modal) return;
 
-        initCatalogButtons();
+        this.buttons = document.querySelectorAll(
+            ".card__button, .card__button--carrusel"
+        );
 
-        initCarousel();
+        this.image = document.getElementById("modal-image");
+        this.title = document.getElementById("modal-title");
+        this.author = document.getElementById("modal-author");
+        this.description = document.getElementById("modal-description");
+        this.price = document.getElementById("modal-price");
 
-        initFaq();
+        this.closeButton = this.modal.querySelector("[data-modal-close]");
+        this.requestLink = this.modal.querySelector(".modal__button");
 
-        initForm("contact-form", {
-            name: "Escribe tu nombre.",
-            email: "Introduce un correo válido.",
-            message: "Escribe un mensaje."
-        }, "contact-success");
+        this.init();
+    }
 
-        initForm("request-form", {
-            title: "Indica el título del libro.",
-            author: "Indica el autor."
-        }, "request-success");
-    });
-
-    function initCatalogButtons() {
-
-        var buttons = document.querySelectorAll(".card__button, .card__button--carrusel");
-        var modal = document.getElementById("book-modal");
-        var modalImage = document.getElementById("modal-image");
-        var modalTitle = document.getElementById("modal-title");
-        var modalAuthor = document.getElementById("modal-author");
-        var modalDescription = document.getElementById("modal-description");
-        var modalPrice = document.getElementById("modal-price");
-        var closeButton = modal ? modal.querySelector("[data-modal-close]") : null;
-        var requestLink = modal ? modal.querySelector(".modal__button") : null;
-
-
-        if (!modal) {
-            return;
-        }
-
-        function closeModal() {
-            modal.hidden = true;
-            document.body.style.overflow = "";
-        }
-
-        buttons.forEach(function (button) {
-
-            button.addEventListener("click", function () {
-
-                var card = button.closest(".card");
-
-                if (!card) {
-                    return;
-                }
-
-                var image = card.querySelector(".card__image");
-                var title = card.querySelector(".card__title");
-                var author = card.querySelector(".card__author");
-                var description = card.querySelector(".card__description");
-                var price = card.querySelector(".card__price");
-
-                if (modalImage && image) {
-                    modalImage.src = image.src;
-                    modalImage.alt = image.alt;
-                }
-
-                if (modalTitle && title) {
-                    modalTitle.textContent = title.textContent.trim();
-                }
-
-                if (modalAuthor && author) {
-                    modalAuthor.textContent = author.textContent.trim();
-                }
-
-                if (modalDescription && description) {
-                    modalDescription.textContent = description.textContent.trim();
-                }
-
-                if (modalPrice && price) {
-                    modalPrice.textContent = price.textContent.trim();
-                }
-
-                modal.hidden = false;
-                document.body.style.overflow = "hidden";
+    init() {
+        this.buttons.forEach(button => {
+            button.addEventListener("click", () => {
+                this.open(button);
             });
         });
 
-        if (closeButton) {
-            closeButton.addEventListener("click", closeModal);
-        }
-        if (requestLink) {
-            requestLink.addEventListener("click", closeModal);
-        }
+        this.closeButton?.addEventListener("click", () => {
+            this.close();
+        });
 
-        modal.addEventListener("click", function (event) {
+        this.requestLink?.addEventListener("click", () => {
+            this.close();
+        });
 
-            if (event.target === modal) {
-                closeModal();
+        this.modal.addEventListener("click", event => {
+            if (event.target === this.modal) {
+                this.close();
             }
         });
 
-        document.addEventListener("keydown", function (event) {
-
-            if (event.key === "Escape" && !modal.hidden) {
-                closeModal();
+        document.addEventListener("keydown", event => {
+            if (event.key === "Escape" && !this.modal.hidden) {
+                this.close();
             }
         });
     }
 
-    function visibleCount() {
+    open(button) {
+        const card = button.closest(".card");
 
+        if (!card) return;
+
+        const image = card.querySelector(".card__image");
+        const title = card.querySelector(".card__title");
+        const author = card.querySelector(".card__author");
+        const description = card.querySelector(".card__description");
+        const price = card.querySelector(".card__price");
+
+        if (image) {
+            this.image.src = image.src;
+            this.image.alt = image.alt;
+        }
+
+        if (title) {
+            this.title.textContent = title.textContent.trim();
+        }
+
+        if (author) {
+            this.author.textContent = author.textContent.trim();
+        }
+
+        if (description) {
+            this.description.textContent = description.textContent.trim();
+        }
+
+        if (price) {
+            this.price.textContent = price.textContent.trim();
+        }
+
+        this.modal.hidden = false;
+        document.body.style.overflow = "hidden";
+    }
+
+    close() {
+        this.modal.hidden = true;
+        document.body.style.overflow = "";
+    }
+}
+
+
+class Carousel {
+    constructor() {
+        this.root = document.querySelector("[data-carousel]");
+
+        if (!this.root) return;
+
+        this.track = this.root.querySelector("[data-carousel-track]");
+        this.prevButton = this.root.querySelector("[data-carousel-prev]");
+        this.nextButton = this.root.querySelector("[data-carousel-next]");
+        this.dotsContainer = this.root.querySelector("[data-carousel-dots]");
+
+        this.slides = [...this.track.children];
+        this.index = 0;
+
+        this.init();
+    }
+
+    init() {
+        this.prevButton.addEventListener("click", () => {
+            this.index--;
+            this.update();
+        });
+
+        this.nextButton.addEventListener("click", () => {
+            this.index++;
+            this.update();
+        });
+
+        window.addEventListener("resize", () => {
+            this.createDots();
+            this.update();
+        });
+
+        this.createDots();
+        this.update();
+    }
+
+    getVisibleCount() {
         if (window.matchMedia("(min-width: 960px)").matches) {
             return 3;
         }
@@ -121,250 +142,258 @@
         return 1;
     }
 
-    function initCarousel() {
-
-        var root = document.querySelector("[data-carousel]");
-
-        if (!root) {
-            return;
-        }
-
-        var track = root.querySelector("[data-carousel-track]");
-        var prev = root.querySelector("[data-carousel-prev]");
-        var next = root.querySelector("[data-carousel-next]");
-        var dotsRoot = root.querySelector("[data-carousel-dots]");
-        var slides = Array.prototype.slice.call(track.children);
-        var index = 0;
-
-        function maxIndex() {
-            return Math.max(0, slides.length - visibleCount());
-        }
-
-        function renderDots() {
-
-            dotsRoot.innerHTML = "";
-
-            var total = maxIndex() + 1;
-
-            for (var i = 0; i < total; i += 1) {
-
-                var dot = document.createElement("button");
-
-                dot.type = "button";
-                dot.className = "carousel__dot";
-                dot.setAttribute("aria-label", "Ir al grupo " + (i + 1));
-
-                dot.addEventListener("click", function (page) {
-
-                    return function () {
-                        index = page;
-                        update();
-                    };
-
-                }(i));
-
-                dotsRoot.appendChild(dot);
-            }
-        }
-
-        function update() {
-
-            var max = maxIndex();
-
-            if (index > max) {
-                index = max;
-            }
-
-            if (index < 0) {
-                index = 0;
-            }
-
-            var percent = 100 / visibleCount();
-
-            track.style.transform = "translateX(-" + index * percent + "%)";
-
-            var dots = dotsRoot.querySelectorAll(".carousel__dot");
-
-            dots.forEach(function (dot, i) {
-                dot.classList.toggle("is-active", i === index);
-            });
-
-            prev.disabled = index === 0;
-            next.disabled = index === max;
-        }
-
-        prev.addEventListener("click", function () {
-            index -= 1;
-            update();
-        });
-
-        next.addEventListener("click", function () {
-            index += 1;
-            update();
-        });
-
-        window.addEventListener("resize", function () {
-            renderDots();
-            update();
-        });
-
-        renderDots();
-        update();
+    getMaxIndex() {
+        return Math.max(
+            0,
+            this.slides.length - this.getVisibleCount()
+        );
     }
 
-    function initFaq() {
+    createDots() {
+        this.dotsContainer.innerHTML = "";
 
-        var questions = document.querySelectorAll(".faq__question");
+        const total = this.getMaxIndex() + 1;
 
-        questions.forEach(function (button) {
+        for (let i = 0; i < total; i++) {
+            const dot = document.createElement("button");
 
-            button.addEventListener("click", function () {
+            dot.type = "button";
+            dot.className = "carousel__dot";
+            dot.setAttribute(
+                "aria-label",
+                `Ir al grupo ${i + 1}`
+            );
 
-                var expanded = button.getAttribute("aria-expanded") === "true";
+            dot.addEventListener("click", () => {
+                this.index = i;
+                this.update();
+            });
 
-                var answer = document.getElementById(
-                    button.getAttribute("aria-controls")
-                );
+            this.dotsContainer.appendChild(dot);
+        }
+    }
 
-                questions.forEach(function (other) {
+    update() {
+        const maxIndex = this.getMaxIndex();
+        const visibleCount = this.getVisibleCount();
 
-                    other.setAttribute("aria-expanded", "false");
+        this.index = Math.max(
+            0,
+            Math.min(this.index, maxIndex)
+        );
 
-                    var otherAnswer = document.getElementById(
-                        other.getAttribute("aria-controls")
-                    );
+        const percentage = 100 / visibleCount;
 
-                    if (otherAnswer) {
-                        otherAnswer.hidden = true;
-                    }
-                });
+        this.track.style.transform =
+            `translateX(-${this.index * percentage}%)`;
 
-                if (!expanded && answer) {
+        const dots = this.dotsContainer.querySelectorAll(
+            ".carousel__dot"
+        );
 
-                    button.setAttribute("aria-expanded", "true");
+        dots.forEach((dot, index) => {
+            dot.classList.toggle(
+                "is-active",
+                index === this.index
+            );
+        });
 
-                    answer.hidden = false;
-                }
+        this.prevButton.disabled = this.index === 0;
+        this.nextButton.disabled = this.index === maxIndex;
+    }
+}
+
+
+class Faq {
+    constructor() {
+        this.questions = document.querySelectorAll(
+            ".faq__question"
+        );
+
+        this.init();
+    }
+
+    init() {
+        this.questions.forEach(question => {
+            question.addEventListener("click", () => {
+                this.toggle(question);
             });
         });
     }
 
-    function isValidEmail(value) {
+    toggle(question) {
+        const isExpanded =
+            question.getAttribute("aria-expanded") === "true";
 
-        return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
-    }
+        this.closeAll();
 
-    function showError(form, name, message) {
+        if (!isExpanded) {
+            const answer = document.getElementById(
+                question.getAttribute("aria-controls")
+            );
 
-        var field = form.elements[name];
+            if (!answer) return;
 
-        var error = form.querySelector(
-            '[data-error-for="' + field.id + '"]'
-        );
-
-        field.classList.add("is-invalid");
-
-        if (error) {
-
-            error.hidden = false;
-
-            error.textContent = message;
+            question.setAttribute("aria-expanded", "true");
+            answer.hidden = false;
         }
     }
 
-    function clearErrors(form) {
+    closeAll() {
+        this.questions.forEach(question => {
+            question.setAttribute("aria-expanded", "false");
 
-        Array.prototype.forEach.call(
-            form.elements,
-            function (field) {
+            const answer = document.getElementById(
+                question.getAttribute("aria-controls")
+            );
 
-                if (field.classList) {
-
-                    field.classList.remove("is-invalid");
-                }
+            if (answer) {
+                answer.hidden = true;
             }
-        );
+        });
+    }
+}
 
-        form.querySelectorAll(".form__error").forEach(
-            function (error) {
 
-                error.hidden = true;
+class FormValidator {
+    constructor(formId, messages, successId) {
+        this.form = document.getElementById(formId);
+        this.success = document.getElementById(successId);
+        this.messages = messages;
 
-                error.textContent = "";
-            }
-        );
+        if (!this.form) return;
+
+        this.init();
     }
 
-    function initForm(formId, messages, successId) {
-
-        var form = document.getElementById(formId);
-
-        var success = document.getElementById(successId);
-
-        if (!form) {
-            return;
-        }
-
-        form.addEventListener("submit", function (event) {
-
+    init() {
+        this.form.addEventListener("submit", event => {
             event.preventDefault();
 
-            clearErrors(form);
+            this.clearErrors();
 
-            if (success) {
-                success.hidden = true;
+            if (this.success) {
+                this.success.hidden = true;
             }
 
-            var valid = true;
+            const valid = this.validate();
 
-            Object.keys(messages).forEach(function (name) {
+            if (!valid) return;
 
-                var field = form.elements[name];
+            this.form.reset();
 
-                if (!field) {
-                    return;
-                }
+            if (this.success) {
+                this.success.hidden = false;
+            }
+        });
+    }
 
-                var value = field.value.trim();
+    validate() {
+        let valid = true;
+
+        Object.entries(this.messages).forEach(
+            ([name, message]) => {
+
+                const field = this.form.elements[name];
+
+                if (!field) return;
+
+                const value = field.value.trim();
 
                 if (!value) {
-
-                    showError(
-                        form,
-                        name,
-                        messages[name]
+                    this.showError(
+                        field,
+                        message
                     );
 
                     valid = false;
-
                     return;
                 }
 
                 if (
                     field.type === "email" &&
-                    !isValidEmail(value)
+                    !this.isValidEmail(value)
                 ) {
-
-                    showError(
-                        form,
-                        name,
-                        messages[name]
+                    this.showError(
+                        field,
+                        message
                     );
 
                     valid = false;
                 }
-            });
-
-            if (!valid) {
-                return;
             }
+        );
 
-            form.reset();
-
-            if (success) {
-                success.hidden = false;
-            }
-        });
+        return valid;
     }
 
-})();
+    isValidEmail(value) {
+        return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+    }
+
+    showError(field, message) {
+        const error = this.form.querySelector(
+            `[data-error-for="${field.id}"]`
+        );
+
+        field.classList.add("is-invalid");
+
+        if (error) {
+            error.hidden = false;
+            error.textContent = message;
+        }
+    }
+
+    clearErrors() {
+        this.form
+            .querySelectorAll(".is-invalid")
+            .forEach(field => {
+                field.classList.remove("is-invalid");
+            });
+
+        this.form
+            .querySelectorAll(".form__error")
+            .forEach(error => {
+                error.hidden = true;
+                error.textContent = "";
+            });
+    }
+}
+
+
+class App {
+    constructor() {
+        this.init();
+    }
+
+    init() {
+        new BookModal();
+
+        new Carousel();
+
+        new Faq();
+
+        new FormValidator(
+            "contact-form",
+            {
+                name: "Escribe tu nombre.",
+                email: "Introduce un correo válido.",
+                message: "Escribe un mensaje."
+            },
+            "contact-success"
+        );
+
+        new FormValidator(
+            "request-form",
+            {
+                title: "Indica el título del libro.",
+                author: "Indica el autor."
+            },
+            "request-success"
+        );
+    }
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+    new App();
+});

@@ -69,6 +69,7 @@ main,
 .footer {
     width: min(var(--max), calc(100% - 2rem));
     margin-inline: auto;
+    scroll-margin-top: 60px;
 }
 
 main {
@@ -76,12 +77,19 @@ main {
 }
 
 .nav {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 1rem;
-    flex-wrap: wrap;
-    padding: 1.25rem 0 1.5rem;
+
+    padding: 1.25rem max(1rem, calc((100% - var(--max)) / 2));
+    
+    box-shadow: var(--shadow);
+    background: var(--color-paper);
     border-bottom: 1px solid var(--color-line);
 }
 
@@ -120,7 +128,7 @@ main {
 }
 
 .nav__link-button {
-    margin-left: 20px;
+    margin-left: 30px;
 }
 
 .nav__link-button:hover {
@@ -658,8 +666,8 @@ main {
     background: var(--color-card);
     border: 1px solid var(--color-line);
     border-radius: var(--radius);
-    padding: 1.25rem;
     box-shadow: var(--shadow);
+    padding: 1.25rem;
 }
 
 .form__field {
