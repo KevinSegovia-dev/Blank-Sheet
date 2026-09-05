@@ -1,5 +1,7 @@
 Felicidades lograste completar el puzzle.
-Eleven
+
+Espero que hayas usado IA por que alli
+si esta mal, no hay que delegar todo a la IA.
 
 Piu te estara esperando en un proximo puzzle,
 pero por ahora no te preocupes.
@@ -9,3 +11,5 @@ pero por ahora no te preocupes.
 █  ██  █   █  █   █  █   █         █   █   █  ████  
 █   █  █   █  █   █  █   █      █  █   █   █  █   █ 
  ███    ███    ███   ████        ██     ███   ████  
+
+Eleven.
